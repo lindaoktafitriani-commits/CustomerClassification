@@ -12,6 +12,14 @@ Kelas: 3C
 
 Mata Kuliah: Sistem Cerdas
 
+## Link Aplikasi
+
+Website telah berhasil dideploy menggunakan PythonAnywhere
+dan dapat diakses secara publik.
+
+- [Prediksi Pelanggan](https://fitriani.pythonanywhere.com/)
+- [Evaluasi Model](https://fitriani.pythonanywhere.com/evaluasi/)
+  
 ## 1. Masalah yang Diselesaikan
 
 Aplikasi ini bertujuan mengklasifikasikan jenis pelanggan distributor menjadi HoReCa (Hotel, Restoran, dan Kafe) atau Retail (pedagang eceran) berdasarkan pola pengeluaran tahunan pelanggan menggunakan machine learning.
