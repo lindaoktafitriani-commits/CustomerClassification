@@ -1,0 +1,19 @@
+# Virtual environment
+venv/
+.venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Konfigurasi rahasia
+.env
+
+# Database lokal
+db.sqlite3
+
+# Hasil collectstatic
+staticfiles/
+
+# Konfigurasi VS Code
+.vscode/

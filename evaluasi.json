@@ -1,0 +1,7 @@
+{
+    "akurasi_latih": 94.24242424242424,
+    "akurasi_uji": 95.45454545454545,
+    "jumlah_latih": 330,
+    "jumlah_uji": 110,
+    "laporan": "              precision    recall  f1-score   support\n\n      HoReCa       0.97      0.96      0.97        75\n      Retail       0.92      0.94      0.93        35\n\n    accuracy                           0.95       110\n   macro avg       0.94      0.95      0.95       110\nweighted avg       0.96      0.95      0.95       110\n"
+}

@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Type Predictor</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Jenis tulisan */
+            background: #f1f5f9; /* Warna latar belakang */
+            padding: 30px 15px; /* Jarak halaman */
+        }
+
+        .container {
+            max-width: 500px; /* Lebar halaman */
+            margin: auto; /* Posisi di tengah */
+            background: white; /* Warna kotak */
+            padding: 30px; /* Jarak isi */
+            border-radius: 12px; /* Sudut membulat */
+            box-shadow: 0 4px 15px #00000015; /* Bayangan */
+        }
+
+        input {
+            width: 100%; /* Lebar input */
+            padding: 10px; /* Jarak dalam input */
+            box-sizing: border-box; /* Menyesuaikan ukuran */
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+        }
+
+        label {
+            display: block; /* Label di atas input */
+            margin-bottom: 8px;
+        }
+
+        button {
+            width: 100%; /* Lebar tombol */
+            padding: 12px;
+            background: #2563eb; /* Warna tombol */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .hasil {
+            margin-top: 20px;
+            background: #e8f0ff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .errorlist {
+            color: red; /* Pesan kesalahan */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Navigasi halaman -->
+        <nav style="margin-bottom: 20px;">
+            <a href="{% url 'index' %}">Prediksi Pelanggan</a>
+            |
+            <a href="{% url 'evaluasi' %}">Evaluasi Model</a>
+        </nav>
+
+        <!-- Judul dan deskripsi website -->
+        <h1>Customer Type Predictor</h1>
+        <p>Klasifikasi pelanggan menggunakan Decision Tree.</p>
+        <p>Masukkan pengeluaran tahunan dalam satuan moneter dataset.</p>
+
+        <!-- Form input pelanggan -->
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Prediksi Pelanggan</button>
+
+        </form>
+
+        <!-- Menampilkan hasil prediksi -->
+        {% if hasil %}
+            <div class="hasil">
+
+                <p>Hasil Klasifikasi</p>
+                <h2>{{ hasil }}</h2>
+
+                {% if hasil == "HoReCa" %}
+                    <p>Hotel, Restoran, atau Kafe</p>
+                {% else %}
+                    <p>Toko atau Pedagang Eceran</p>
+                {% endif %}
+
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>

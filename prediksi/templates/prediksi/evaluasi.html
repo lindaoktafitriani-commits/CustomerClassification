@@ -1,0 +1,114 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluasi Model</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            padding: 25px;
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        nav, .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            margin-right: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        h2 {
+            color: #2563eb;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        pre {
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Navigasi website -->
+        <nav>
+            <a href="{% url 'index' %}">Prediksi Pelanggan</a>
+            <a href="{% url 'evaluasi' %}">Evaluasi Model</a>
+        </nav>
+
+        <h1>Evaluasi Decision Tree</h1>
+
+        <!-- Menampilkan hasil akurasi -->
+        <div class="grid">
+            <div class="card">
+                <p>Akurasi Training</p>
+                <h2>{{ akurasi_latih|floatformat:2 }}%</h2>
+            </div>
+
+            <div class="card">
+                <p>Akurasi Testing</p>
+                <h2>{{ akurasi_uji|floatformat:2 }}%</h2>
+            </div>
+
+            <div class="card">
+                <p>Jumlah Data Training</p>
+                <h2>{{ jumlah_latih }}</h2>
+            </div>
+
+            <div class="card">
+                <p>Jumlah Data Testing</p>
+                <h2>{{ jumlah_uji }}</h2>
+            </div>
+        </div>
+
+        <!-- Menampilkan metrik evaluasi -->
+        <div class="card">
+            <h2>Classification Report</h2>
+            <pre>{{ laporan }}</pre>
+        </div>
+
+        <!-- Menampilkan confusion matrix -->
+        <div class="card">
+            <h2>Confusion Matrix</h2>
+            <img src="{% static 'prediksi/confusion_matrix.png' %}"
+                 alt="Confusion Matrix">
+        </div>
+
+        <!-- Menampilkan pohon keputusan -->
+        <div class="card">
+            <h2>Visualisasi Decision Tree</h2>
+            <img src="{% static 'prediksi/decision_tree.png' %}"
+                 alt="Decision Tree">
+        </div>
+
+    </div>
+</body>
+</html>
